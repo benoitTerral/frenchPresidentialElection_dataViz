@@ -62,7 +62,7 @@ def main():
         click_on_button(
             driver, f'//div[@class="modal__CloseButton-sc-le7yza-8 hAxkop"]'
         )
-        time.sleep(0.1)
+        time.sleep(0.3)
 
 
 if __name__ == "__main__":

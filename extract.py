@@ -1,6 +1,7 @@
 import zipfile
 import os
 import re
+from utility import move_to_dir
 
 
 def extract_csv(zip_file: zipfile.ZipFile):
@@ -15,9 +16,14 @@ def main():
     # what is the best practice for file and current directory ?
     os.chdir(".")
     path = f"{os.getcwd()}/data"
-    if not (os.path.exists(path) and os.path.isdir(path)):
-        raise Exception("data folder not found")
-    os.chdir(path)
+    move_to_dir(path)
+    # try:
+    #     os.chdir(path)
+    # except FileNotFoundError as e:
+    #     print(f"data directory not found: {e}")
+    # except NotADirectoryError as e:
+    #     print(f"data directory not found: {e}")
+    pattern = r"\d{4}\.csv"
     for filename in os.listdir(path):
         try:
             if os.path.isdir(filename):
@@ -27,7 +33,13 @@ def main():
                 zip_file.close()
                 os.remove(filename)
         except zipfile.BadZipFile:
-            print(f"The file '{filename}' is not a zip file.")
+            if re.match(pattern, filename):
+                pass
+            else:
+                print(
+                    f"The file '{filename}' has unexpected format, processing with deletion"
+                )
+                os.remove(filename)
         except TypeError as e:
             print(e)
 
