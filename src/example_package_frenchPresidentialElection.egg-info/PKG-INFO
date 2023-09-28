@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: example-package-frenchPresidentialElection
+Version: 0.0.1
+Summary: Dataviz of french presidential election with data from https://unehistoireduconflitpolitique.fr/
+Author-email: Benoit Terral <benoit.terral@gmail.com>
+Project-URL: Homepage, https://github.com/benoitTerral/frenchPresidentialElection_dataViz
+Project-URL: Bug Tracker, https://github.com/benoitTerral/frenchPresidentialElection_dataViz/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# unehistoireduconflitpolitique
+
+Datasource: Julia Cagé et Thomas Piketty (2023) : Une histoire du conflit politique. Élections et inégalités sociales en France, 1789-2022, Paris, Le Seuil.
