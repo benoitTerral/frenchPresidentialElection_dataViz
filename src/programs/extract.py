@@ -1,7 +1,7 @@
 import zipfile
 import os
 import re
-from programs.utility import move_to_dir
+from utility import move_to_dir
 
 
 def extract_csv(zip_file: zipfile.ZipFile):
@@ -15,7 +15,7 @@ def extract_csv(zip_file: zipfile.ZipFile):
 def main():
     # what is the best practice for file and current directory ?
     os.chdir(".")
-    path = f"{os.getcwd()}/data"
+    path = f"{os.getcwd()}/assets/data"
     move_to_dir(path)
     pattern = r"\d{4}\.csv"
     for filename in os.listdir(path):

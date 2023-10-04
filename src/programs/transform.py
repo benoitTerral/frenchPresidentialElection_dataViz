@@ -1,13 +1,13 @@
 import os
 import re
-from programs.utility import move_to_dir
+from utility import move_to_dir
 import pandas as pd
 import pickle
 
 
 def main():
     pattern = r"(\d{4})\.csv"
-    path = f"{os.getcwd()}/data"
+    path = f"{os.path.dirname(os.path.abspath(__file__))}/../assets/data"
     move_to_dir(path)
     dataframes = {}
     for filename in os.listdir(path):
@@ -19,8 +19,12 @@ def main():
                 print(e)
     for key, value in dataframes.items():
         print(f"Key: {key}, Value: {type(value)}")
-    pickle_file = "dataframes.pkl"
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    pickle_file = "df_communes.pkl"
+    destination_dir = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "../assets", "pickles"
+    )
+    os.makedirs(destination_dir, exist_ok=True)
+    os.chdir(destination_dir)
     with open(pickle_file, "wb") as file:
         pickle.dump(dataframes, file)
         print(f"Dataframes saved as {pickle_file}")

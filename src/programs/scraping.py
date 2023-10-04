@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 import os
 import shutil
-import rich
+
 
 def initialize_driver():
     options = Options()
@@ -78,9 +78,6 @@ def main():
             driver, f'//div[@class="modal__CloseButton-sc-le7yza-8 hAxkop"]'
         )
         time.sleep(0.5)
-        
-	for file in os.listdir(folder_path):
-        
 
     driver.quit()
 
